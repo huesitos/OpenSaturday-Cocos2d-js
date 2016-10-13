@@ -11,13 +11,11 @@ var DirectorLayer = cc.LayerColor.extend({
         var size = cc.winSize;
 
         /////////////////////////////
-        // 3. add your codes below...
-        // add a label shows "Hello World"
-        // create and initialize a label
-        var titleLabel = new cc.LabelTTF("cc.director and transitions", "Helvetica", 38);
+        // 3. add a labels
+        var titleLabel = new cc.LabelTTF("cc.director and transitions", "Helvetica", 50);
         // position the label on the center of the screen
         titleLabel.x = size.width / 2;
-        titleLabel.y = size.height * .80;
+        titleLabel.y = size.height * .85;
         titleLabel.setColor(cc.color.BLACK);
         // add the label as a child to this layer
         this.addChild(titleLabel, 5);
@@ -27,7 +25,7 @@ var DirectorLayer = cc.LayerColor.extend({
             "cc.director.pushScene(transition_and_scene)\n\n"+
             "cc.director.popScene(scene)",
             "Helvetica",
-            24
+            35
         );
         info.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
         info.attr({
@@ -43,16 +41,18 @@ var DirectorLayer = cc.LayerColor.extend({
             x: size.width * .74,
             y: size.height / 2
         });
-        this.sprite.setScale(0.2);
+        this.sprite.setScale(0.35);
         this.addChild(this.sprite, 0);
         
+        /////////////////////////////
+        // 4. add options menu
         var beginTransitionFest = new cc.MenuItemFont(
             "Begin transitions fest",
             this.onBeginTransitionFest
         );
         beginTransitionFest.attr({
-            x: size.width / 2,
-            y: size.height * .25
+            x: size.width * .27,
+            y: size.height * .30
         });
         beginTransitionFest.setColor(cc.color.ORANGE);
         
@@ -66,7 +66,17 @@ var DirectorLayer = cc.LayerColor.extend({
         });
         nextScreen.setColor(cc.color.BLACK);
         
-        var menu = new cc.Menu(beginTransitionFest, nextScreen);
+        var backBtn = new cc.MenuItemFont(
+            "Main Menu",
+            this.onBack
+        );
+        backBtn.attr({
+            x: size.width * .10,
+            y: size.height * .15
+        });
+        backBtn.setColor(cc.color.BLACK);
+        
+        var menu = new cc.Menu(beginTransitionFest, backBtn, nextScreen);
         menu.x = menu.y = 0;
         this.addChild(menu);
         
@@ -78,6 +88,9 @@ var DirectorLayer = cc.LayerColor.extend({
     },
     onNextScreen: function () {
         cc.director.runScene(new cc.TransitionSlideInR(1, SceneLayer.getScene()));
+    },
+    onBack: function () {
+        cc.director.runScene(new cc.TransitionSlideInL(1, new HelloWorldScene()));
     }
 });
 

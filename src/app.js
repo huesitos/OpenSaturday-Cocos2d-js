@@ -16,24 +16,24 @@ var HelloWorldLayer = cc.Layer.extend({
         // 3. add your codes below...
         // add a label shows "Hello World"
         // create and initialize a label
-        var titleLabel = new cc.LabelTTF("Getting Started With Cocos2d-js", "Helvetica", 38);
+        var titleLabel = new cc.LabelTTF("Getting Started With Cocos2d-js", "Helvetica", 60);
         // position the label on the center of the screen
         titleLabel.x = size.width / 2;
         titleLabel.y = size.height * .80;
         // add the label as a child to this layer
         this.addChild(titleLabel, 5);
         
-        var subTitleLabel = new cc.LabelTTF("Open Saturday", "Helvetica", 20);
+        var subTitleLabel = new cc.LabelTTF("Open Saturday", "Helvetica", 42);
         // position the label on the center of the screen
         subTitleLabel.x = size.width / 2;
         subTitleLabel.y = size.height * .90;
         // add the label as a child to this layer
         this.addChild(subTitleLabel, 5);
         
-        var speaker = new cc.LabelTTF("Denisse Lara", "Helvetica", 20);
+        var speaker = new cc.LabelTTF("Denisse Lara", "Helvetica", 42);
         // position the label on the center of the screen
         speaker.x = size.width / 2;
-        speaker.y = size.height * .73;
+        speaker.y = size.height * .71;
         // add the label as a child to this layer
         this.addChild(speaker, 5);
         
@@ -43,14 +43,15 @@ var HelloWorldLayer = cc.Layer.extend({
             x: size.width / 2,
             y: size.height / 2
         });
+        this.sprite.setScale(1.4);
         this.addChild(this.sprite, 0);
         
         // add menu
         cc.MenuItemFont.setFontName("Helvetica");
-        cc.MenuItemFont.setFontSize(25);
+        cc.MenuItemFont.setFontSize(40);
         
         var playBtn = new cc.MenuItemFont("Play", this.onPlay);
-        playBtn.setPosition(cc.p(size.width / 2, size.height * .15));
+        playBtn.setPosition(cc.p(size.width / 2, size.height * .20));
         
         var mainMenu = new cc.Menu(playBtn);
         mainMenu.x = 0;
