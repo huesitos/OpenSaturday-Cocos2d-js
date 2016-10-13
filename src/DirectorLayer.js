@@ -12,7 +12,7 @@ var DirectorLayer = cc.LayerColor.extend({
 
         /////////////////////////////
         // 3. add a labels
-        var titleLabel = new cc.LabelTTF("cc.director and transitions", "Helvetica", 50);
+        var titleLabel = new cc.LabelTTF("cc.director and transitions", "Arcade", 100);
         // position the label on the center of the screen
         titleLabel.x = size.width / 2;
         titleLabel.y = size.height * .85;

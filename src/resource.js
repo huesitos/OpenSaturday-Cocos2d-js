@@ -6,7 +6,9 @@ var res = {
     Bouncy_png : "res/bouncy.png",
     Cappy_png : "res/cappy.png",
     Glunk_png : "res/glunk.png",
+    Sparky_png : "res/sparky.png",
     Kirby_png : "res/kirby.png",
+    LayersStructure_png : "res/layerstructure.png",
     titleFont : {type: "font", name: "Arcade", srcs: ["res/arcadeclassic.regular.ttf"]}
 };
 
