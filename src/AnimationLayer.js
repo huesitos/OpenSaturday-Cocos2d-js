@@ -5,7 +5,7 @@ var AnimationLayer = cc.LayerColor.extend({
         var size = cc.winSize;
         
         /////////////////////////////
-        // 2. add scene title label
+        // 1. add scene title label
         var titleLabel = new cc.LabelTTF("Animations", "Arcade", 100);
         titleLabel.attr({x: size.width / 2, y: size.height * .90});
         titleLabel.setColor(cc.color.BLACK);
@@ -54,10 +54,6 @@ var AnimationLayer = cc.LayerColor.extend({
         pinkMonsterExplode.runAction(this.explodeAction);
         this.addChild(pinkMonsterExplode);
         
-        var btn = new cc.MenuItemFont("Events", this.onEvents);
-        btn.setColor(cc.color.BLACK);
-        btn.attr({x: size.width * .90, y: size.height * .15});
-        
         var animationsInfoLabel = new cc.LabelTTF(
             "Use a .plist with its corresponding .png\n" +
             "Don't forget to add it to the resource file",
@@ -72,13 +68,20 @@ var AnimationLayer = cc.LayerColor.extend({
         animationsInfoLabel.setColor(cc.color.BLACK);
         this.addChild(animationsInfoLabel);
         
+        /////////////////////////////
+        // 2. add navigation menu
+        
+        var btn = new cc.MenuItemFont("Events", this.onEvents);
+        btn.setColor(cc.color.BLACK);
+        btn.attr({x: size.width * .90, y: size.height * .15});
+        
         var backBtn = new cc.MenuItemFont(
             "cc.director",
             this.onBack
         );
         backBtn.attr({
             x: size.width * .10,
-            y: size.height * .20
+            y: size.height * .15
         });
         backBtn.setColor(cc.color.BLACK);
         

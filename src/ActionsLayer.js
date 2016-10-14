@@ -130,7 +130,7 @@ var ActionsLayer = cc.LayerColor.extend({
         );
         backBtn.attr({
             x: size.width * .10,
-            y: size.height * .20
+            y: size.height * .15
         });
         backBtn.setColor(cc.color.BLACK);
         

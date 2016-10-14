@@ -15,6 +15,7 @@
         "src/resource.js",
         "src/app.js",
         "src/TransitionLayer.js",
+        "src/EndLayer.js",
         "src/AudioFontLayer.js",
         "src/EventsLayer.js",
         "src/AnimationLayer.js",

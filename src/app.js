@@ -53,7 +53,12 @@ var HelloWorldLayer = cc.Layer.extend({
         var playBtn = new cc.MenuItemFont("Play", this.onPlay);
         playBtn.setPosition(cc.p(size.width / 2, size.height * .20));
         
-        var mainMenu = new cc.Menu(playBtn);
+        var gameFinished = cc.sys.localStorage.getItem("game_finished");
+        var endBtn = new cc.MenuItemFont("End", this.onEnd);
+        endBtn.setPosition(cc.p(size.width / 2, size.height * .15));
+        endBtn.setVisible(JSON.parse(gameFinished));
+        
+        var mainMenu = new cc.Menu(playBtn, endBtn);
         mainMenu.x = 0;
         mainMenu.y = 0;
         this.addChild(mainMenu);
@@ -63,6 +68,10 @@ var HelloWorldLayer = cc.Layer.extend({
     onPlay: function () {
         // begin presentation
         cc.director.runScene(new cc.TransitionSlideInR(1, DirectorLayer.getScene()));
+    },
+    onEnd: function () {
+        // begin presentation
+        cc.director.runScene(new cc.TransitionSlideInL(1, EndLayer.getScene()));
     }
 });
 
