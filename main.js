@@ -74,7 +74,7 @@ cc.game.onStart = function(){
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
 //        cc.director.runScene(new HelloWorldScene());
-        cc.director.runScene(ActionsLayer.getScene());
+        cc.director.runScene(AnimationLayer.getScene());
     }, this);
 };
 cc.game.run();

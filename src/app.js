@@ -47,7 +47,7 @@ var HelloWorldLayer = cc.Layer.extend({
         this.addChild(this.sprite, 0);
         
         // add menu
-        cc.MenuItemFont.setFontName("Helvetica");
+        cc.MenuItemFont.setFontName("Arcade");
         cc.MenuItemFont.setFontSize(40);
         
         var playBtn = new cc.MenuItemFont("Play", this.onPlay);

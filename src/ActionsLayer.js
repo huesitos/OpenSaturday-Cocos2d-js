@@ -15,13 +15,13 @@ var ActionsLayer = cc.LayerColor.extend({
         // 1. action sequences
         this.delayTime = new cc.DelayTime(1);
         
-        this.moveTo = new cc.MoveTo(1, cc.p(size.width * .5, size.height * .70));        
-        this.jumpTo = new cc.JumpTo(2, cc.p(size.width * .25, size.height * .70), 50, 4);
-        this.jumpTo2 = new cc.JumpTo(2, cc.p(size.width * .5, size.height * .25), 50, 4);
+        this.moveTo = new cc.MoveTo(1, cc.p(size.width * .45, size.height * .70));        
+        this.jumpTo = new cc.JumpTo(2, cc.p(size.width * .15, size.height * .70), 50, 4);
+        this.jumpTo2 = new cc.JumpTo(2, cc.p(size.width * .45, size.height * .25), 50, 4);
         var bezierOptions = [
-            cc.p(size.width * .3, size.height * .85),
-            cc.p(size.width * .4, size.height * .65),
-            cc.p(size.width * .5, size.height * .70)
+            cc.p(size.width * .25, size.height * .85),
+            cc.p(size.width * .35, size.height * .55),
+            cc.p(size.width * .45, size.height * .70)
         ];
         this.bezierTo = new cc.BezierTo(2, bezierOptions);
         this.place = new cc.Place(cc.p(size.width * .25, size.height * .70));
@@ -55,25 +55,68 @@ var ActionsLayer = cc.LayerColor.extend({
         
         /////////////////////////////
         // 3. nodes to run actions
+        
+        // blipper
         var blipper = new cc.Sprite(res.Blipper_png);
         blipper.attr({x: size.width * .15, y: size.height * .70});
         blipper.setScale(0.3);
         blipper.runAction(new cc.RepeatForever(this.firstSequence));
         this.addChild(blipper);
         
+        var blipperActions = new cc.LabelTTF(
+            "MoveTo, JumpTo, BezierTo, Place",
+            "Helvetica",
+            35
+        );
+        blipperActions.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        blipperActions.attr({
+            x: size.width * .28,
+            y: size.height * .55
+        });
+        blipperActions.setColor(cc.color.BLACK);
+        this.addChild(blipperActions);
+        
+        // bouncy
         var bouncy = new cc.Sprite(res.Bouncy_png);
         bouncy.attr({x: size.width * .5, y: size.height * .30});
         bouncy.setScale(0.3);
         bouncy.runAction(new cc.RepeatForever(this.secondSequence));
+        bouncy.runAction(new cc.RepeatForever(this.fourthSequence));
         this.addChild(bouncy);
         
+        var bouncyActions = new cc.LabelTTF(
+            "ScaleTo, RotateBy, FadeTo",
+            "Helvetica",
+            35
+        );
+        bouncyActions.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        bouncyActions.attr({
+            x: size.width * .5,
+            y: size.height * .10
+        });
+        bouncyActions.setColor(cc.color.BLACK);
+        this.addChild(bouncyActions);
+        
+        // cappy        
         var cappy = new cc.Sprite(res.Cappy_png);
         cappy.attr({x: size.width * .75, y: size.height * .70});
         cappy.setScale(0.3);
         cappy.runAction(new cc.RepeatForever(this.thirdSequence));
-        cappy.runAction(new cc.RepeatForever(this.fourthSequence));
         cappy.runAction(new cc.RepeatForever(this.fifthSequence));
         this.addChild(cappy);
+        
+        var cappyActions = new cc.LabelTTF(
+            "TintTo, SkewTo",
+            "Helvetica",
+            35
+        );
+        cappyActions.setHorizontalAlignment(cc.TEXT_ALIGNMENT_CENTER);
+        cappyActions.attr({
+            x: size.width * .75,
+            y: size.height * .55
+        });
+        cappyActions.setColor(cc.color.BLACK);
+        this.addChild(cappyActions);
                 
         /////////////////////////////
         // 3. navigation menu

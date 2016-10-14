@@ -9,6 +9,10 @@ var res = {
     Sparky_png : "res/sparky.png",
     Kirby_png : "res/kirby.png",
     LayersStructure_png : "res/layerstructure.png",
+    Monster_plist : "res/pink_monster.plist",
+    Monster_png : "res/pink_monster.png",
+    Explode_png : "res/explode.png",
+    Explode_plist : "res/explode.plist",
     titleFont : {type: "font", name: "Arcade", srcs: ["res/arcadeclassic.regular.ttf"]}
 };
 
